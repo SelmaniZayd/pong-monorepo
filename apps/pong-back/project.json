@@ -1,0 +1,50 @@
+{
+  "name": "pong-back",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/pong-back/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/pong-back",
+        "main": "apps/pong-back/src/main.ts",
+        "tsConfig": "apps/pong-back/tsconfig.app.json",
+        "assets": ["apps/pong-back/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/pong-back/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "pong-back:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "pong-back:build:development"
+        },
+        "production": {
+          "buildTarget": "pong-back:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/pong-back/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

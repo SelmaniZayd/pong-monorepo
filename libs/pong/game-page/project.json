@@ -1,0 +1,51 @@
+{
+  "name": "pong-game-page",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/pong/game-page/src",
+  "prefix": "pong",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/pong/game-page/ng-package.json",
+        "tailwindConfig": "libs/pong/game-page/tailwind.config.js"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/pong/game-page/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/pong/game-page/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/pong/game-page/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/pong/game-page/**/*.ts",
+          "libs/pong/game-page/**/*.html"
+        ]
+      }
+    }
+  }
+}

@@ -2,7 +2,7 @@
   "name": "pong",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "org",
+  "prefix": "pong",
   "sourceRoot": "apps/pong/src",
   "tags": [],
   "targets": {

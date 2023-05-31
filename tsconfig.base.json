@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@pong/data-access": ["libs/pong/data-access/src/index.ts"],
+      "@pong/game-page": ["libs/pong/game-page/src/index.ts"],
+      "@pong/home-page": ["libs/pong/home-page/src/index.ts"],
+      "@pong/ui": ["libs/pong/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
